@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beam Audio | Audio Research & Technologies</title>
+    <title>Beam Audio | Cutting-Edge Research Lab</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <style>
         /* --- 1. Variables and Base --- */
         :root {
-            /* Color from the Beam Audio logo image (Teal/Turquoise) */
-            --color-primary: #17b3a4; 
-            /* Dark Navy/Black for text and backgrounds (from logo) */
-            --color-dark: #2a363b;     
-            /* Off-White/Light Gray for backgrounds */
-            --color-light: #f4f6f9;    
-            /* Bold, modern typeface */
+            --color-primary: #17b3a4; /* Teal/Turquoise */
+            --color-dark: #121212;     /* Pure Black-like for background */
+            --color-medium: #2a363b;   /* Deep Navy/Secondary Dark */
+            --color-light: #f4f6f9;    /* Off-White for text/cards */
+            --color-accent-text: #fff;
             --font-family-main: 'League Spartan', sans-serif;
-            --header-height: 60px;
-            /* Material Shadows for elevation */
-            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            --shadow-raised: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            --header-height: 70px;
+            --shadow-glow: 0 0 15px rgba(23, 179, 164, 0.5); /* Primary color glow */
+            --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -32,43 +31,39 @@
 
         body {
             font-family: var(--font-family-main);
-            color: var(--color-dark);
-            background-color: var(--color-light);
+            color: var(--color-light);
+            background-color: var(--color-dark);
             line-height: 1.6;
-        }
-        
-        /* Ensure all text uses League Spartan */
-        h1, h2, h3, p, span, a {
-            font-family: var(--font-family-main);
+            overflow-x: hidden; /* Prevent horizontal scroll from subtle transforms */
         }
 
         a {
             color: var(--color-primary);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s, opacity 0.3s;
         }
 
         a:hover {
-            color: var(--color-dark);
+            color: var(--color-light);
+            opacity: 0.8;
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
         }
 
         /* --- 2. Header and Navigation --- */
         header {
             background-color: var(--color-dark);
-            color: var(--color-light);
             height: var(--header-height);
             display: flex;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-subtle); /* Material elevation */
+            border-bottom: 1px solid var(--color-medium);
         }
 
         header .container {
@@ -78,187 +73,220 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700; /* Bold */
+            font-size: 1.6rem;
+            font-weight: 700;
             color: var(--color-light);
             display: flex;
             align-items: center;
+            letter-spacing: 1px;
         }
         
-        /* Placeholder for logo image */
         .logo-image {
-            height: 40px; 
-            width: 40px;
+            height: 35px; 
+            width: 35px;
             margin-right: 10px;
             background-color: var(--color-primary);
-            border-radius: 4px;
-            display: inline-block;
-            /* In a real project, this would be: background-image: url('path/to/image_5196fb.png'); */
+            border-radius: 50%; /* Circular icon */
+            box-shadow: var(--shadow-glow);
+            transition: box-shadow 0.5s;
         }
 
         nav a {
             color: var(--color-light);
-            margin-left: 25px;
-            font-weight: 400; /* Regular weight for navigation items */
-            padding: 5px 0;
+            margin-left: 30px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
             color: var(--color-primary);
         }
 
-        /* --- 3. Hero Section --- */
+        /* --- 3. Hero Section (Maximum Impact) --- */
         .hero {
-            background-color: var(--color-primary);
-            color: var(--color-dark);
-            padding: 100px 0;
+            background-color: var(--color-dark);
+            padding: 120px 0;
             text-align: center;
-            border-bottom: 8px solid var(--color-dark);
+            /* Subtle Gradient/Texture */
+            background-image: radial-gradient(circle at center, rgba(23, 179, 164, 0.05) 0%, transparent 70%);
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            font-size: 5.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            /* Dynamic Text Effect: Slight primary glow */
+            text-shadow: 0 0 5px rgba(23, 179, 164, 0.4);
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
         }
 
         .hero p {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-cta {
-            background-color: var(--color-dark);
-            color: var(--color-light);
+            background-color: var(--color-primary);
+            color: var(--color-dark);
             padding: 15px 40px;
             border-radius: 4px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             display: inline-block;
-            box-shadow: var(--shadow-subtle);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
         }
 
         .hero-cta:hover {
-            background-color: #3f5159; 
-            box-shadow: var(--shadow-raised);
-            transform: translateY(-2px);
-            color: var(--color-light);
+            background-color: #fff;
+            box-shadow: 0 0 25px rgba(23, 179, 164, 0.8);
+            transform: scale(1.05);
+            color: var(--color-dark);
         }
 
         /* --- 4. Main Content Sections --- */
         section {
-            padding: 80px 0;
-        }
-        
-        #research {
-            background-color: #ffffff; /* White background for feed */
-        }
-        
-        #code {
-            background-color: var(--color-light); /* Light gray background for code */
+            padding: 100px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--color-dark);
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--color-light);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--color-primary);
         }
 
-        /* --- 5. Research Feed (Card Layout) --- */
+        /* --- 5. Research Feed (Dynamic Card Layout) --- */
         .feed-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .research-card {
-            background-color: #ffffff;
-            border-radius: 8px;
+            background-color: var(--color-medium);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-subtle); /* Card elevation */
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--color-medium);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
         }
-
+        
+        /* Dynamic Hover: Lift, glow, and change border */
         .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-raised);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--color-primary);
+            background-color: #38454c;
         }
 
         .card-content {
-            padding: 25px;
+            padding: 30px;
         }
 
         .card-content h3 {
-            color: var(--color-dark);
+            color: var(--color-primary);
             margin-bottom: 10px;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .card-meta {
             font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 15px;
+            color: #aaa;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #333;
             padding-bottom: 10px;
         }
 
-        .card-links a {
-            margin-right: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
+        .card-meta span {
+            display: flex;
+            align-items: center;
         }
         
-        /* --- 6. Papers and Code Sections (Clean Lists) --- */
+        .material-icons-outlined {
+            font-size: 18px;
+            margin-right: 5px;
+            color: var(--color-primary);
+        }
+
+        .card-links a {
+            margin-right: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-light); /* Make link light by default */
+        }
+        
+        .card-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* --- 6. Code & Papers Sections (Clean/Technical Look) --- */
         .code-repo {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--color-primary);
+            background-color: var(--color-medium);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 6px solid var(--color-primary);
             box-shadow: var(--shadow-subtle);
+            transition: all 0.3s;
+        }
+        
+        .code-repo:hover {
+            border-left-width: 12px; /* Subtle dynamic emphasis on hover */
         }
 
         .code-repo h3 {
-            margin-bottom: 5px;
-            color: var(--color-dark);
-            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--color-light);
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .code-repo-meta {
             font-size: 0.9rem;
-            color: #555;
+            color: #aaa;
             margin-bottom: 15px;
         }
 
         .code-repo a {
             font-weight: 700;
             text-transform: uppercase;
-            margin-right: 15px;
+            margin-right: 20px;
+            color: var(--color-primary);
         }
 
         /* --- 7. Footer --- */
         footer {
             background-color: var(--color-dark);
-            color: var(--color-light);
+            color: #777;
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
             font-size: 0.9rem;
-            font-weight: 400;
+            border-top: 1px solid var(--color-medium);
         }
     </style>
 </head>
@@ -268,11 +296,11 @@
         <div class="container">
             <a href="#" class="logo">
                 <span class="logo-image"></span> 
-                Beam Audio
+                BEAM AUDIO
             </a>
             <nav>
                 <a href="#about">About</a>
-                <a href="#research">Research Feed</a>
+                <a href="#research">Feed</a>
                 <a href="#papers">Papers</a>
                 <a href="#code">Code</a>
             </nav>
@@ -281,9 +309,9 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Beam Audio Research</h1>
-            <p>Pioneering the next generation of high-fidelity, real-time parametric audio coding and processing technologies.</p>
-            <a href="#research" class="hero-cta">Explore Our Latest Work</a>
+            <h1>Cutting-Edge <span>Audio Research</span></h1>
+            <p>Pioneering the next generation of sparse approximation and real-time parametric audio technologies.</p>
+            <a href="#research" class="hero-cta">Explore Our Work</a>
         </div>
     </section>
 
@@ -291,7 +319,7 @@
         <div class="section-header">
             <h2>Our Mission</h2>
         </div>
-        <p style="font-size: 1.15rem; text-align: center; max-width: 800px; margin: 0 auto;">Beam Audio is dedicated to advancing fundamental research in digital signal processing, focusing on Sparse Approximation and the Analytic Signal domain. We aim to create robust and semantically manipulable audio codecs that perform efficiently in real-time, enabling new possibilities for interactive audio applications.</p>
+        <p style="font-size: 1.25rem; text-align: center; max-width: 800px; margin: 0 auto; color: #ccc;">Beam Audio is dedicated to creating robust, semantically manipulable audio codecs by leveraging the Analytic Signal domain and advanced signal processing. We transform theoretical breakthroughs into efficient, real-time code.</p>
     </section>
 
     <section id="research" class="container">
@@ -304,26 +332,26 @@
                 <div class="card-content">
                     <h3>Beam Audio Codec V1.0 (BVC)</h3>
                     <div class="card-meta">
-                        <span>Date: Dec 2025</span>
-                        <span>Topic: Parametric Coding</span>
+                        <span><span class="material-icons-outlined">calendar_today</span> Dec 2025</span>
+                        <span><span class="material-icons-outlined">science</span> Parametric Coding</span>
                     </div>
-                    <p>Introduction of the Batch Analytic Matching Pursuit (B-AMP) algorithm, achieving a 1.52x Real-Time Factor and high fidelity on multimodal audio signals.</p>
-                    <div class="card-links">
+                    <p style="color: #ccc;">The foundational work introducing Batch Analytic Matching Pursuit (B-AMP). Achieved a **1.52x Real-Time Factor** and **11.33 dB SNR** on multimodal audio.</p>
+                    <div class="card-links" style="margin-top: 20px;">
                         <a href="#paper-bvc1">View Paper</a>
-                        <a href="#code">See Codebase</a>
+                        <a href="#code">Codebase</a>
                     </div>
                 </div>
             </article>
 
             <article class="research-card">
                 <div class="card-content">
-                    <h3>Non-Stationary Signal Limitation Study (BVC V2.1)</h3>
+                    <h3>Non-Stationary Limitation Study (V2.1)</h3>
                     <div class="card-meta">
-                        <span>Date: Jan 2026 (Upcoming)</span>
-                        <span>Topic: Dictionary Limitations</span>
+                        <span><span class="material-icons-outlined">build</span> Jan 2026 (Upcoming)</span>
+                        <span><span class="material-icons-outlined">warning_amber</span> Dictionary Limits</span>
                     </div>
-                    <p>Detailed analysis confirming the analytic signal's fundamental limits for chirps and non-stationary components, guiding the path to a multi-resolution search strategy.</p>
-                    <div class="card-links">
+                    <p style="color: #ccc;">Detailed experimental analysis confirming the **fundamental limits** of the pure Analytic Signal approach for non-stationary signals (chirps), achieving only **4.27 dB SNR**.</p>
+                    <div class="card-links" style="margin-top: 20px;">
                         <a href="#">Read Post</a>
                     </div>
                 </div>
@@ -331,13 +359,13 @@
 
             <article class="research-card">
                 <div class="card-content">
-                    <h3>Adaptive Residual Modeling with A-NELP</h3>
+                    <h3>Adaptive Residual Modeling (A-NELP)</h3>
                     <div class="card-meta">
-                        <span>Date: Nov 2025</span>
-                        <span>Topic: Noise Modeling</span>
+                        <span><span class="material-icons-outlined">track_changes</span> Nov 2025</span>
+                        <span><span class="material-icons-outlined">insights</span> Noise Modeling</span>
                     </div>
-                    <p>A deep dive into the Adaptive Noise-Excited Linear Prediction layer used in BVC for efficiently coding stochastic residuals.</p>
-                    <div class="card-links">
+                    <p style="color: #ccc;">A deep dive into the Adaptive Noise-Excited Linear Prediction layer used in BVC for efficiently coding the stochastic residual (when **SFM > 0.4**).</p>
+                    <div class="card-links" style="margin-top: 20px;">
                         <a href="#">View Presentation</a>
                         <a href="#papers">See Thesis</a>
                     </div>
@@ -357,8 +385,9 @@
             <div class="code-repo-meta">
                 <span>IEEE TASLP, Vol. 33, No. 1, Dec 2025</span> | <span>Authors: Beam Audio Research Team</span>
             </div>
-            <p>The foundational paper for BVC, introducing the Analytic Signal approach and the Batch Analytic Matching Pursuit (B-AMP) algorithm to achieve real-time performance.</p>
-            <a href="main_paper.pdf">Download PDF</a> | <a href="#code">Code</a>
+            <p style="color: #ccc;">The foundational paper for BVC, introducing the Analytic Signal approach and the Batch Analytic Matching Pursuit (B-AMP) algorithm to achieve high-speed, real-time audio coding.</p>
+            <a href="main_paper.pdf"><span class="material-icons-outlined">download</span> Download PDF</a>
+            <a href="#code"><span class="material-icons-outlined">code</span> Code</a>
         </div>
         
         <div class="code-repo">
@@ -366,35 +395,33 @@
             <div class="code-repo-meta">
                 <span>Journal of Audio Engineering, Q3 2026</span> | <span>Authors: B. A. Team</span>
             </div>
-            <p>Future work discussing the implementation of chirplets and a multi-resolution search to improve fidelity on highly dynamic audio.</p>
-            <a href="#">Pre-Print (Coming Soon)</a>
+            <p style="color: #ccc;">Future work detailing the implementation of **chirplets** and a **Stochastic/Multi-Resolution Search** strategy to overcome current fidelity limitations on dynamic audio.</p>
+            <a href="#"><span class="material-icons-outlined">article</span> Pre-Print (Coming Soon)</a>
         </div>
 
     </section>
 
-    <section id="code">
-        <div class="container">
-            <div class="section-header">
-                <h2>Open Source Codebase</h2>
+    <section id="code" class="container">
+        <div class="section-header">
+            <h2>Open Source Codebase</h2>
+        </div>
+        
+        <div class="code-repo">
+            <h3>BVC Encoder/Decoder (C++17)</h3>
+            <div class="code-repo-meta">
+                <span>Language: C++17</span> | <span>Status: V2.1 (Hybrid Reference)</span>
             </div>
-            
-            <div class="code-repo">
-                <h3>BVC Encoder/Decoder (C++17)</h3>
-                <div class="code-repo-meta">
-                    <span>Language: C++17</span> | <span>Status: V2.1 (Hybrid)</span>
-                </div>
-                <p>The core implementation of the Beam Audio Codec, including Batch Analytic Matching Pursuit (B-AMP) and the A-NELP residual layer.</p>
-                <a href="https://github.com/BeamAudio/bvc-codec">View on GitHub</a>
-            </div>
+            <p style="color: #ccc;">The core implementation of the Beam Audio Codec, including B-AMP and the A-NELP residual layer. Current state reflects the **V2.1 failure analysis** as a negative result reference.</p>
+            <a href="https://github.com/BeamAudio/bvc-codec"><span class="material-icons-outlined">open_in_new</span> View on GitHub</a>
+        </div>
 
-            <div class="code-repo">
-                <h3>BAC5 Bitstream Tools</h3>
-                <div class="code-repo-meta">
-                    <span>Language: Python</span> | <span>Status: Stable</span>
-                </div>
-                <p>Tools for parsing and generating the entropy-coded BAC5 bitstream format.</p>
-                <a href="https://github.com/BeamAudio/bac5-tools">View on GitHub</a>
+        <div class="code-repo">
+            <h3>BAC5 Bitstream Tools</h3>
+            <div class="code-repo-meta">
+                <span>Language: Python</span> | <span>Status: Stable</span>
             </div>
+            <p style="color: #ccc;">Tools for parsing and generating the entropy-coded BAC5 bitstream format (Delta-Rice and Rice coding on parameters).</p>
+            <a href="https://github.com/BeamAudio/bac5-tools"><span class="material-icons-outlined">open_in_new</span> View on GitHub</a>
         </div>
     </section>
 
