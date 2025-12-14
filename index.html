@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beam Audio | Audio Research & Technologies</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         /* --- 1. Variables and Base --- */
         :root {
-            /* Color from the Beam Audio logo image */
-            --color-primary: #17b3a4; /* Teal/Turquoise */
-            --color-dark: #2a363b;     /* Dark Navy/Black for text */
-            --color-light: #f4f6f9;    /* Off-White/Light Gray */
-            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            /* Color from the Beam Audio logo image (Teal/Turquoise) */
+            --color-primary: #17b3a4; 
+            /* Dark Navy/Black for text and backgrounds (from logo) */
+            --color-dark: #2a363b;     
+            /* Off-White/Light Gray for backgrounds */
+            --color-light: #f4f6f9;    
+            /* Bold, modern typeface */
+            --font-family-main: 'League Spartan', sans-serif;
             --header-height: 60px;
+            /* Material Shadows for elevation */
+            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --shadow-raised: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
 
         * {
@@ -23,10 +31,15 @@
         }
 
         body {
-            font-family: var(--font-family-sans);
+            font-family: var(--font-family-main);
             color: var(--color-dark);
             background-color: var(--color-light);
             line-height: 1.6;
+        }
+        
+        /* Ensure all text uses League Spartan */
+        h1, h2, h3, p, span, a {
+            font-family: var(--font-family-main);
         }
 
         a {
@@ -55,7 +68,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-subtle); /* Material elevation */
         }
 
         header .container {
@@ -66,29 +79,27 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 700; /* Bold */
             color: var(--color-light);
             display: flex;
             align-items: center;
         }
-
-        .logo-icon {
-            height: 30px; /* Adjust size to fit header */
+        
+        /* Placeholder for logo image */
+        .logo-image {
+            height: 40px; 
+            width: 40px;
             margin-right: 10px;
-            background-color: var(--color-primary); /* Use primary color as a placeholder for the logo area */
-            width: 30px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--color-dark);
+            background-color: var(--color-primary);
+            border-radius: 4px;
+            display: inline-block;
+            /* In a real project, this would be: background-image: url('path/to/image_5196fb.png'); */
         }
 
         nav a {
             color: var(--color-light);
-            margin-left: 20px;
-            font-weight: 500;
+            margin-left: 25px;
+            font-weight: 400; /* Regular weight for navigation items */
             padding: 5px 0;
         }
 
@@ -100,124 +111,144 @@
         .hero {
             background-color: var(--color-primary);
             color: var(--color-dark);
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             border-bottom: 8px solid var(--color-dark);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 4rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 30px;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 40px;
         }
 
         .hero-cta {
             background-color: var(--color-dark);
             color: var(--color-light);
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 15px 40px;
+            border-radius: 4px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .hero-cta:hover {
-            background-color: #3f5159; /* Slightly lighter dark */
+            background-color: #3f5159; 
+            box-shadow: var(--shadow-raised);
+            transform: translateY(-2px);
             color: var(--color-light);
         }
 
         /* --- 4. Main Content Sections --- */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+        
+        #research {
+            background-color: #ffffff; /* White background for feed */
+        }
+        
+        #code {
+            background-color: var(--color-light); /* Light gray background for code */
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--color-dark);
-            border-bottom: 3px solid var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             display: inline-block;
-            padding-bottom: 5px;
         }
 
         /* --- 5. Research Feed (Card Layout) --- */
         .feed-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .research-card {
             background-color: #ffffff;
-            border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-subtle); /* Card elevation */
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .research-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-raised);
         }
 
         .card-content {
-            padding: 20px;
+            padding: 25px;
         }
 
         .card-content h3 {
-            color: var(--color-primary);
+            color: var(--color-dark);
             margin-bottom: 10px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .card-meta {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #777;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
 
         .card-links a {
-            margin-right: 15px;
+            margin-right: 20px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
         }
         
-        /* --- 6. Code Section --- */
-        #code {
-            background-color: #e3e6e9;
-        }
-
+        /* --- 6. Papers and Code Sections (Clean Lists) --- */
         .code-repo {
             background-color: #ffffff;
             padding: 25px;
             border-radius: 8px;
             margin-bottom: 20px;
             border-left: 5px solid var(--color-primary);
+            box-shadow: var(--shadow-subtle);
         }
 
         .code-repo h3 {
             margin-bottom: 5px;
             color: var(--color-dark);
+            font-size: 1.2rem;
         }
 
         .code-repo-meta {
             font-size: 0.9rem;
             color: #555;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .code-repo a {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 15px;
         }
 
         /* --- 7. Footer --- */
@@ -225,8 +256,9 @@
             background-color: var(--color-dark);
             color: var(--color-light);
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
             font-size: 0.9rem;
+            font-weight: 400;
         }
     </style>
 </head>
@@ -235,7 +267,7 @@
     <header>
         <div class="container">
             <a href="#" class="logo">
-                <span class="logo-icon">BA</span> 
+                <span class="logo-image"></span> 
                 Beam Audio
             </a>
             <nav>
@@ -259,7 +291,7 @@
         <div class="section-header">
             <h2>Our Mission</h2>
         </div>
-        <p>Beam Audio is dedicated to advancing fundamental research in digital signal processing, focusing on Sparse Approximation and the Analytic Signal domain. We aim to create robust and semantically manipulable audio codecs that perform efficiently in real-time, enabling new possibilities for interactive audio applications.</p>
+        <p style="font-size: 1.15rem; text-align: center; max-width: 800px; margin: 0 auto;">Beam Audio is dedicated to advancing fundamental research in digital signal processing, focusing on Sparse Approximation and the Analytic Signal domain. We aim to create robust and semantically manipulable audio codecs that perform efficiently in real-time, enabling new possibilities for interactive audio applications.</p>
     </section>
 
     <section id="research" class="container">
@@ -321,11 +353,11 @@
         </div>
         
         <div class="code-repo">
-            [cite_start]<h3 id="paper-bvc1">Beam Audio Codec: High-Fidelity Real-Time Parametric Coding via Batch Analytic Matching Pursuit [cite: 2, 8]</h3>
+            <h3 id="paper-bvc1">Beam Audio Codec: High-Fidelity Real-Time Parametric Coding via Batch Analytic Matching Pursuit</h3>
             <div class="code-repo-meta">
-                <span>IEEE TASLP, Vol. [cite_start]33, No. 1, Dec 2025 [cite: 1]</span> | [cite_start]<span>Authors: Beam Audio Research Team [cite: 4]</span>
+                <span>IEEE TASLP, Vol. 33, No. 1, Dec 2025</span> | <span>Authors: Beam Audio Research Team</span>
             </div>
-            [cite_start]<p>The foundational paper for BVC, introducing the Analytic Signal approach and the Batch Analytic Matching Pursuit (B-AMP) algorithm to achieve real-time performance[cite: 2, 8, 9].</p>
+            <p>The foundational paper for BVC, introducing the Analytic Signal approach and the Batch Analytic Matching Pursuit (B-AMP) algorithm to achieve real-time performance.</p>
             <a href="main_paper.pdf">Download PDF</a> | <a href="#code">Code</a>
         </div>
         
@@ -349,7 +381,7 @@
             <div class="code-repo">
                 <h3>BVC Encoder/Decoder (C++17)</h3>
                 <div class="code-repo-meta">
-                    [cite_start]<span>Language: C++17 [cite: 58]</span> | <span>Status: V2.1 (Hybrid)</span>
+                    <span>Language: C++17</span> | <span>Status: V2.1 (Hybrid)</span>
                 </div>
                 <p>The core implementation of the Beam Audio Codec, including Batch Analytic Matching Pursuit (B-AMP) and the A-NELP residual layer.</p>
                 <a href="https://github.com/BeamAudio/bvc-codec">View on GitHub</a>
@@ -360,7 +392,7 @@
                 <div class="code-repo-meta">
                     <span>Language: Python</span> | <span>Status: Stable</span>
                 </div>
-                [cite_start]<p>Tools for parsing and generating the entropy-coded BAC5 bitstream format[cite: 27, 72].</p>
+                <p>Tools for parsing and generating the entropy-coded BAC5 bitstream format.</p>
                 <a href="https://github.com/BeamAudio/bac5-tools">View on GitHub</a>
             </div>
         </div>
