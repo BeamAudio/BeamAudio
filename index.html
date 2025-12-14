@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beam Audio | Audio Research & Technologies</title>
+
+    <style>
+        /* --- 1. Variables and Base --- */
+        :root {
+            /* Color from the Beam Audio logo image */
+            --color-primary: #17b3a4; /* Teal/Turquoise */
+            --color-dark: #2a363b;     /* Dark Navy/Black for text */
+            --color-light: #f4f6f9;    /* Off-White/Light Gray */
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- 2. Header and Navigation --- */
+        header {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            height: 30px; /* Adjust size to fit header */
+            margin-right: 10px;
+            background-color: var(--color-primary); /* Use primary color as a placeholder for the logo area */
+            width: 30px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--color-dark);
+        }
+
+        nav a {
+            color: var(--color-light);
+            margin-left: 20px;
+            font-weight: 500;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 8px solid var(--color-dark);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero-cta {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .hero-cta:hover {
+            background-color: #3f5159; /* Slightly lighter dark */
+            color: var(--color-light);
+        }
+
+        /* --- 4. Main Content Sections --- */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* --- 5. Research Feed (Card Layout) --- */
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .research-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-links a {
+            margin-right: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* --- 6. Code Section --- */
+        #code {
+            background-color: #e3e6e9;
+        }
+
+        .code-repo {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .code-repo h3 {
+            margin-bottom: 5px;
+            color: var(--color-dark);
+        }
+
+        .code-repo-meta {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* --- 7. Footer --- */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-icon">BA</span> 
+                Beam Audio
+            </a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#research">Research Feed</a>
+                <a href="#papers">Papers</a>
+                <a href="#code">Code</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Beam Audio Research</h1>
+            <p>Pioneering the next generation of high-fidelity, real-time parametric audio coding and processing technologies.</p>
+            <a href="#research" class="hero-cta">Explore Our Latest Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2>Our Mission</h2>
+        </div>
+        <p>Beam Audio is dedicated to advancing fundamental research in digital signal processing, focusing on Sparse Approximation and the Analytic Signal domain. We aim to create robust and semantically manipulable audio codecs that perform efficiently in real-time, enabling new possibilities for interactive audio applications.</p>
+    </section>
+
+    <section id="research" class="container">
+        <div class="section-header">
+            <h2>Latest Research Feed</h2>
+        </div>
+        <div class="feed-grid">
+            
+            <article class="research-card">
+                <div class="card-content">
+                    <h3>Beam Audio Codec V1.0 (BVC)</h3>
+                    <div class="card-meta">
+                        <span>Date: Dec 2025</span>
+                        <span>Topic: Parametric Coding</span>
+                    </div>
+                    <p>Introduction of the Batch Analytic Matching Pursuit (B-AMP) algorithm, achieving a 1.52x Real-Time Factor and high fidelity on multimodal audio signals.</p>
+                    <div class="card-links">
+                        <a href="#paper-bvc1">View Paper</a>
+                        <a href="#code">See Codebase</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="research-card">
+                <div class="card-content">
+                    <h3>Non-Stationary Signal Limitation Study (BVC V2.1)</h3>
+                    <div class="card-meta">
+                        <span>Date: Jan 2026 (Upcoming)</span>
+                        <span>Topic: Dictionary Limitations</span>
+                    </div>
+                    <p>Detailed analysis confirming the analytic signal's fundamental limits for chirps and non-stationary components, guiding the path to a multi-resolution search strategy.</p>
+                    <div class="card-links">
+                        <a href="#">Read Post</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="research-card">
+                <div class="card-content">
+                    <h3>Adaptive Residual Modeling with A-NELP</h3>
+                    <div class="card-meta">
+                        <span>Date: Nov 2025</span>
+                        <span>Topic: Noise Modeling</span>
+                    </div>
+                    <p>A deep dive into the Adaptive Noise-Excited Linear Prediction layer used in BVC for efficiently coding stochastic residuals.</p>
+                    <div class="card-links">
+                        <a href="#">View Presentation</a>
+                        <a href="#papers">See Thesis</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="papers" class="container">
+        <div class="section-header">
+            <h2>Key Papers</h2>
+        </div>
+        
+        <div class="code-repo">
+            [cite_start]<h3 id="paper-bvc1">Beam Audio Codec: High-Fidelity Real-Time Parametric Coding via Batch Analytic Matching Pursuit [cite: 2, 8]</h3>
+            <div class="code-repo-meta">
+                <span>IEEE TASLP, Vol. [cite_start]33, No. 1, Dec 2025 [cite: 1]</span> | [cite_start]<span>Authors: Beam Audio Research Team [cite: 4]</span>
+            </div>
+            [cite_start]<p>The foundational paper for BVC, introducing the Analytic Signal approach and the Batch Analytic Matching Pursuit (B-AMP) algorithm to achieve real-time performance[cite: 2, 8, 9].</p>
+            <a href="main_paper.pdf">Download PDF</a> | <a href="#code">Code</a>
+        </div>
+        
+        <div class="code-repo">
+            <h3>Optimizing Atom Selection for Non-Stationary Signals</h3>
+            <div class="code-repo-meta">
+                <span>Journal of Audio Engineering, Q3 2026</span> | <span>Authors: B. A. Team</span>
+            </div>
+            <p>Future work discussing the implementation of chirplets and a multi-resolution search to improve fidelity on highly dynamic audio.</p>
+            <a href="#">Pre-Print (Coming Soon)</a>
+        </div>
+
+    </section>
+
+    <section id="code">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Source Codebase</h2>
+            </div>
+            
+            <div class="code-repo">
+                <h3>BVC Encoder/Decoder (C++17)</h3>
+                <div class="code-repo-meta">
+                    [cite_start]<span>Language: C++17 [cite: 58]</span> | <span>Status: V2.1 (Hybrid)</span>
+                </div>
+                <p>The core implementation of the Beam Audio Codec, including Batch Analytic Matching Pursuit (B-AMP) and the A-NELP residual layer.</p>
+                <a href="https://github.com/BeamAudio/bvc-codec">View on GitHub</a>
+            </div>
+
+            <div class="code-repo">
+                <h3>BAC5 Bitstream Tools</h3>
+                <div class="code-repo-meta">
+                    <span>Language: Python</span> | <span>Status: Stable</span>
+                </div>
+                [cite_start]<p>Tools for parsing and generating the entropy-coded BAC5 bitstream format[cite: 27, 72].</p>
+                <a href="https://github.com/BeamAudio/bac5-tools">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Beam Audio Research Team. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
